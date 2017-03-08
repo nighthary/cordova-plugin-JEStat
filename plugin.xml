@@ -29,8 +29,40 @@
 
     <js-module src="www/JEStat.js" name="JEStat">
         <clobbers target="navigator.JEStat" />
-    </js-module>
-
+    </js-module> 
+    <preference name="STAT_ID" /> 
+    <!--android-->
+    <platform name="android">
+      <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="JEStat">
+                <param name="android-package" value="com.baidu.mtj.Mtj"/>
+                <param name="onload" value="true" />
+            </feature>
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+     <!-- 您从百度网站获取的APP KEY -->
+        <meta-data
+            android:name="BaiduMobAd_STAT_ID"
+            android:value="$STAT_ID" />      
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest">     
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+        <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        <uses-permission android:name="android.permission.GET_TASKS" />
+        <uses-permission android:name="android.permission.BLUETOOTH" />
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> 
+    </config-file>
+    <!--source code-->
+     <source-file src="src/android/Mtj.java" target-dir="src/com/baidu/mtj"/>
+     <source-file src="src/android/libs/Baidu_Mtj_3.7.5.5.jar" target-dir="libs"/>
+    </platform>
     <!-- ios -->
     
     <platform name="ios">
