@@ -15,7 +15,7 @@ public class Mtj extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-		
+
         if(action.equals("onPageStart")) {
             StatService.onPageStart(cordova.getActivity(),args.getString(0));
         }else if (action.equals("onPageEnd")){
@@ -31,5 +31,5 @@ public class Mtj extends CordovaPlugin {
         }
         return super.execute(action, args, callbackContext);
     }
-   
+
 }

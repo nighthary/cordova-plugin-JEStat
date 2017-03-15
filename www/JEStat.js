@@ -8,7 +8,7 @@ JEStat = {
      *
      */
     startWithAppId: function(key) {
-        return Cordova.exec(null, null, "startWithAppId", "startWithAppId", [key])
+        return Cordova.exec(null, null, "JEStat", "startWithAppId", [key])
     },
     BaiduMobStat: (function() {
         var invokeNatvieMethod = function(action, obj) {
@@ -40,22 +40,24 @@ JEStat = {
                     page: page
                 };
 
-                invokeNatvieMethod('onPageStart', obj);
+                // invokeNatvieMethod('onPageStart', obj);
+                Cordova.exec(null, null, "JEStat", "onPageStart", [page])
             },
             onPageEnd: function(page) {
                 var obj = {
                     page: page
                 };
 
-                invokeNatvieMethod('onPageEnd', obj);
+                Cordova.exec(null, null, "JEStat", "onPageEnd", [page])
+                // invokeNatvieMethod('onPageEnd', obj);
             },
             onEvent: function(id, label) {
                 var obj = {
                     event_id: id,
                     label: label,
                 };
-
-                invokeNatvieMethod('onEvent', obj);
+                // invokeNatvieMethod('onEvent', obj);
+                Cordova.exec(null, null, "JEStat", "onEvent", [id, label])
             },
             onEventStart: function(id, label) {
                 var obj = {
@@ -63,7 +65,8 @@ JEStat = {
                     label: label
                 };
 
-                invokeNatvieMethod('onEventStart', obj);
+                // invokeNatvieMethod('onEventStart', obj);
+                Cordova.exec(null, null, "JEStat", "onEventStart", [id, label])
             },
             onEventEnd: function(id, label) {
                 var obj = {
@@ -71,7 +74,8 @@ JEStat = {
                     label: label
                 };
 
-                invokeNatvieMethod('onEventEnd', obj);
+                // invokeNatvieMethod('onEventEnd', obj);
+                Cordova.exec(null, null, "JEStat", "onEventEnd", [id, label])
             },
             onEventDuration: function(id, label, duration) {
                 var obj = {
@@ -80,7 +84,8 @@ JEStat = {
                     duration: typeof duration === 'number' ? duration : 0
                 };
 
-                invokeNatvieMethod('onEventDuration', obj);
+                // invokeNatvieMethod('onEventDuration', obj);
+                Cordova.exec(null, null, "JEStat", "onEventDuration", [id, label, duration || 0])
             }
         };
     }())

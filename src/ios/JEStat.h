@@ -1,17 +1,19 @@
 //
 //  JEStat.h
-//
-//  Created by 尹现伟 on 15/11/19.
-//  Copyright © 2015年 上海美问信息科技有限公司. All rights reserved.
+//  HelloCordova
 //
 
 
-#import <Foundation/Foundation.h>
 #import <Cordova/CDVPlugin.h>
-
+#import "BaiduMobStat.h"
 
 @interface JEStat : CDVPlugin
 
 - (void)startWithAppId:(CDVInvokedUrlCommand *)command;
-
+-(void)onEvent:(CDVInvokedUrlCommand*)command;
+-(void)onEventDuration:(CDVInvokedUrlCommand *)command;
+-(void)onEventStart:(CDVInvokedUrlCommand *)command;
+-(void)onEventEnd:(CDVInvokedUrlCommand *)command;
+-(void)onPageStart:(CDVInvokedUrlCommand *)command;
+-(void)onPageEnd:(CDVInvokedUrlCommand *)command;
 @end
